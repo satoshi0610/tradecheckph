@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Broker Checklist Tool" description="Answer four questions and get a personalized pre-deposit checklist for choosing a regulated forex broker.">
+  <h1>Broker Checklist Tool</h1>
+  <p>This tool does not recommend or name specific brokers — it generates a personalized checklist of what to verify before you fund an account, based on your answers. Broker-specific reviews are coming once we complete live testing (see our <a href="/guides/">guides</a> in the meantime).</p>
+
+  <form class="checklist" id="checklist-form">
+    <fieldset>
+      <legend>1. Trading experience</legend>
+      <label><input type="radio" name="experience" value="new" checked /> New to trading</label><br />
+      <label><input type="radio" name="experience" value="beginner" /> Beginner (a few months)</label><br />
+      <label><input type="radio" name="experience" value="experienced" /> Experienced</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>2. Planned starting amount</legend>
+      <label><input type="radio" name="amount" value="small" checked /> Small (test amount)</label><br />
+      <label><input type="radio" name="amount" value="medium" /> Medium</label><br />
+      <label><input type="radio" name="amount" value="large" /> Larger amount</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>3. What matters most to you?</legend>
+      <label><input type="radio" name="priority" value="fees" checked /> Low fees / spreads</label><br />
+      <label><input type="radio" name="priority" value="support" /> Support quality</label><br />
+      <label><input type="radio" name="priority" value="withdrawal" /> Fast, reliable withdrawals</label><br />
+      <label><input type="radio" name="priority" value="regulation" /> Strictest possible regulation</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>4. What do you want to trade?</legend>
+      <label><input type="radio" name="products" value="fx" checked /> Forex only</label><br />
+      <label><input type="radio" name="products" value="wide" /> Forex + indices/commodities</label>
+    </fieldset>
+
+    <button type="submit">Get my checklist</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    const form = document.getElementById('checklist-form') as HTMLFormElement;
+    const result = document.getElementById('result') as HTMLDivElement;
+
+    function val(name: string): string {
+      const el = form.querySelector(`input[name="${name}"]:checked`) as HTMLInputElement | null;
+      return el ? el.value : '';
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const experience = val('experience');
+      const amount = val('amount');
+      const priority = val('priority');
+      const products = val('products');
+
+      const items: string[] = [
+        'Verify the broker\'s license number directly on the regulator\'s own public register (FCA / ASIC / CySEC) — not via a link the broker provides.',
+        'Confirm the legal entity you would actually be contracting with, based on your country of residence.',
+      ];
+
+      if (experience === 'new') {
+        items.push('Open a demo account first and trade it for at least a few weeks before funding a live account.');
+        items.push('Avoid brokers or "signal providers" promising guaranteed or fixed returns — that is a scam red flag, not a beginner feature.');
+      }
+      if (amount === 'large') {
+        items.push('For larger deposits, prioritize brokers under top-tier regulators (FCA/ASIC) over lighter-touch jurisdictions.');
+        items.push('Check whether the broker offers negative balance protection and segregated client funds.');
+      } else {
+        items.push('Start with the smallest amount the broker allows so you can test deposit and withdrawal before committing more.');
+      }
+      if (priority === 'withdrawal') {
+        items.push('Search the broker\'s name plus "withdrawal problem" before signing up, and check independent trader forums, not just the broker\'s own testimonials.');
+      }
+      if (priority === 'regulation') {
+        items.push('Filter to brokers holding a top-tier license (FCA, ASIC) rather than only an offshore or lighter-touch registration.');
+      }
+      if (priority === 'fees') {
+        items.push('Compare the actual cost structure (spread + commission + swap) in the broker\'s official fee schedule, not a third-party summary.');
+      }
+      if (products === 'wide') {
+        items.push('Confirm the broker\'s license explicitly covers CFDs on indices/commodities, not only forex — coverage sometimes differs by product.');
+      }
+
+      items.push('Check the current SEC Philippines advisory/warning list for the broker\'s name before depositing.');
+
+      result.innerHTML = `<h2>Your checklist</h2><ul>${items.map((i) => `<li>${i}</li>`).join('')}</ul><p class="meta">This is an educational checklist, not investment advice.</p>`;
+      result.style.display = 'block';
+      result.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+</Layout>
