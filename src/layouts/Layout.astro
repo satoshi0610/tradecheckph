@@ -1,0 +1,34 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = "TradeCheckPH — regulation-first forex broker and prop firm guides for Filipino traders." } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title} | TradeCheckPH</title>
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">TradeCheckPH</a>
+      <nav>
+        <a href="/guides/">Guides</a>
+        <a href="/broker-reviews/">Broker Reviews</a>
+        <a href="/prop-firms/">Prop Firms</a>
+        <a href="/tools/broker-checklist/">Broker Checklist Tool</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>TradeCheckPH publishes educational content about forex brokers and prop firms for traders in the Philippines. Nothing on this site is investment, legal, or tax advice. Always verify broker licenses directly on the regulator's official register and check the current SEC Philippines advisory list before depositing funds.</p>
+    </footer>
+  </body>
+</html>
