@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const guides = (await getCollection('guides', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.lastVerified.valueOf() - a.data.lastVerified.valueOf());
+---
+<Layout title="Guides — Regulation, Scam Awareness & Broker Basics">
+  <h1>Guides</h1>
+  <p>Regulation, scam-awareness, and broker-basics content — the fastest content to publish accurately because it draws on public regulatory information rather than data that needs live testing.</p>
+  {guides.map((guide) => (
+    <div class="card">
+      <span class="badge">{guide.data.category}</span>
+      <p><a href={`/guides/${guide.id}/`}>{guide.data.title}</a></p>
+      <p class="meta">{guide.data.description} — last verified {guide.data.lastVerified.toISOString().slice(0, 10)}</p>
+    </div>
+  ))}
+</Layout>
