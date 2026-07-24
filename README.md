@@ -2,9 +2,13 @@
 
 Astro (v5) static site. Content lives as Markdown in `src/content/guides/` — new articles from the content calendar (`01_content_calendar.md`) are added by dropping a new `.md` file there with the same frontmatter shape (see `src/content/config.ts` for the schema).
 
-## Status
+## Status (2026-07-25)
 
-`npm install` and `npm run build` have been run successfully end-to-end (Astro 5, Node build completed with no errors, all 8 pages generated: home, guides index, 3 guide articles, tools/broker-checklist, and the broker-reviews/prop-firms placeholders). The code uses the current Astro 5 **Content Layer API** (`glob()` loader, `render()` imported from `astro:content`) rather than the legacy `type: 'content'` / `entry.render()` pattern, which Astro 5 deprecated.
+Live at **https://tradecheckph.norihiro-y-6.workers.dev** (Cloudflare Workers static assets, auto-deploys on push to `main` via Cloudflare Workers Builds). Custom domain `tradecheckph.com` is registered as the target but not yet purchased/connected — see `05_infrastructure_setup.md`.
+
+7 guide articles are published, plus `/tools/broker-checklist/`, `robots.txt`, and a build-time-generated `sitemap.xml`. The code uses the current Astro 5 **Content Layer API** (`glob()` loader, `render()` imported from `astro:content`) rather than the legacy `type: 'content'` / `entry.render()` pattern, which Astro 5 deprecated.
+
+Remaining Phase 2/3 articles are tracked in `01_content_calendar.md`.
 
 ## Local development
 
