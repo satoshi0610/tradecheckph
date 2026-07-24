@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const guides = (await getCollection('guides', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.lastVerified.valueOf() - a.data.lastVerified.valueOf());
+---
+<Layout title="Regulation-First Forex Broker & Prop Firm Guides for the Philippines">
+  <h1>Check before you deposit.</h1>
+  <p>TradeCheckPH helps Filipino traders verify forex brokers and prop firms before funding an account — starting with how to check a license yourself, and the scam patterns Philippine regulators keep warning about.</p>
+
+  <h2>Latest guides</h2>
+  {guides.map((guide) => (
+    <div class="card">
+      <span class="badge">{guide.data.category}</span>
+      <p><a href={`/guides/${guide.id}/`}>{guide.data.title}</a></p>
+      <p class="meta">{guide.data.description}</p>
+    </div>
+  ))}
+
+  <h2>Try the broker checklist tool</h2>
+  <p>Answer four quick questions and get a personalized checklist of what to verify before you open an account. <a href="/tools/broker-checklist/">Start the checklist →</a></p>
+</Layout>
