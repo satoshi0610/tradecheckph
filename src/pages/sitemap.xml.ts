@@ -7,6 +7,7 @@ const staticPaths = [
   '/broker-reviews/',
   '/prop-firms/',
   '/tools/broker-checklist/',
+  '/about/',
 ];
 
 export const GET: APIRoute = async ({ site }) => {
