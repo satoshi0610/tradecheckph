@@ -16,7 +16,7 @@ const { Content } = await render(guide);
 <Layout title={guide.data.title} description={guide.data.description}>
   <span class="badge">{guide.data.category}</span>
   <h1>{guide.data.title}</h1>
-  <p class="meta">Last verified {guide.data.lastVerified.toISOString().slice(0, 10)}</p>
+  <p><span class="verified">✓ Last verified {guide.data.lastVerified.toISOString().slice(0, 10)}</span></p>
   <Content />
   {guide.data.sources.length > 0 && (
     <>
