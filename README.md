@@ -2,13 +2,13 @@
 
 Astro (v5) static site. Content lives as Markdown in `src/content/guides/` — new articles from the content calendar (`01_content_calendar.md`) are added by dropping a new `.md` file there with the same frontmatter shape (see `src/content/config.ts` for the schema).
 
-## Status (2026-07-25)
+## Status (2026-07-26)
 
-Live at **https://tradecheckph.norihiro-y-6.workers.dev** (Cloudflare Workers static assets, auto-deploys on push to `main` via Cloudflare Workers Builds). Custom domain `tradecheckph.com` is registered as the target but not yet purchased/connected — see `05_infrastructure_setup.md`.
+Live at **https://tradecheckph.com** (custom domain registered via Cloudflare Registrar and connected; Worker also reachable at `tradecheckph.norihiro-y-6.workers.dev`). Auto-deploys on push to `main` via Cloudflare Workers Builds.
 
-7 guide articles are published, plus `/tools/broker-checklist/`, `robots.txt`, and a build-time-generated `sitemap.xml`. The code uses the current Astro 5 **Content Layer API** (`glob()` loader, `render()` imported from `astro:content`) rather than the legacy `type: 'content'` / `entry.render()` pattern, which Astro 5 deprecated.
+All 20 Phase 1 + Phase 2 guide articles are published (regulation/legality, scam awareness, broker basics, prop firms), plus `/tools/broker-checklist/`, `robots.txt`, a build-time-generated `sitemap.xml`, OG/Twitter meta tags, and an affiliate disclosure in the site footer. The code uses the current Astro 5 **Content Layer API** (`glob()` loader, `render()` imported from `astro:content`) rather than the legacy `type: 'content'` / `entry.render()` pattern, which Astro 5 deprecated.
 
-Remaining Phase 2/3 articles are tracked in `01_content_calendar.md`.
+Next up: Phase 3 (broker/prop-firm reviews, pending live account testing — no fabricated numbers), and the SNS content push per the direction in `01_content_calendar.md`.
 
 ## Local development
 
