@@ -6,12 +6,19 @@ export async function getStaticPaths() {
   const guides = await getCollection('guides', ({ data }) => !data.draft);
   return guides.map((guide) => ({
     params: { slug: guide.id },
-    props: { guide },
+    props: { guide, allGuides: guides },
   }));
 }
 
-const { guide } = Astro.props;
+const { guide, allGuides } = Astro.props;
 const { Content } = await render(guide);
+
+const others = allGuides.filter((g) => g.id !== guide.id);
+const sameCategory = others.filter((g) => g.data.category === guide.data.category);
+const rest = others
+  .filter((g) => g.data.category !== guide.data.category)
+  .sort((a, b) => b.data.lastVerified.valueOf() - a.data.lastVerified.valueOf());
+const related = [...sameCategory, ...rest].slice(0, 3);
 ---
 <Layout title={guide.data.title} description={guide.data.description}>
   <span class="badge">{guide.data.category}</span>
@@ -27,5 +34,19 @@ const { Content } = await render(guide);
         ))}
       </ul>
     </>
+  )}
+
+  {related.length > 0 && (
+    <section class="related">
+      <h2>Related guides</h2>
+      {related.map((g) => (
+        <div class="card">
+          <span class="badge">{g.data.category}</span>
+          <p><a href={`/guides/${g.id}/`}>{g.data.title}</a></p>
+          <p class="meta">{g.data.description}</p>
+        </div>
+      ))}
+      <p><a href="/guides/">Browse all guides →</a></p>
+    </section>
   )}
 </Layout>
