@@ -4,10 +4,41 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  schema?: unknown[];
 }
-const { title, description = "TradeCheckPH — regulation-first forex broker and prop firm guides for Filipino traders." } = Astro.props;
+const {
+  title,
+  description = "TradeCheckPH — regulation-first forex broker and prop firm guides for Filipino traders.",
+  schema = [],
+} = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL('/og-image.png', Astro.site);
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://tradecheckph.com';
+
+const baseSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${site}/#organization`,
+    name: 'TradeCheckPH',
+    url: `${site}/`,
+    logo: `${site}/og-image.png`,
+    description:
+      'Regulation-first forex broker and prop firm guides for Filipino traders.',
+    areaServed: { '@type': 'Country', name: 'Philippines' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${site}/#website`,
+    url: `${site}/`,
+    name: 'TradeCheckPH',
+    inLanguage: 'en',
+    publisher: { '@id': `${site}/#organization` },
+  },
+];
+
+const allSchema = [...baseSchema, ...schema];
 ---
 <!doctype html>
 <html lang="en">
@@ -31,6 +62,10 @@ const ogImage = new URL('/og-image.png', Astro.site);
     <meta name="twitter:title" content={`${title} | TradeCheckPH`} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+
+    {allSchema.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
   </head>
   <body>
     <header class="site-header">
