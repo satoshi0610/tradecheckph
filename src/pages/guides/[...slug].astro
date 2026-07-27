@@ -19,8 +19,72 @@ const rest = others
   .filter((g) => g.data.category !== guide.data.category)
   .sort((a, b) => b.data.lastVerified.valueOf() - a.data.lastVerified.valueOf());
 const related = [...sameCategory, ...rest].slice(0, 3);
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? 'https://tradecheckph.com';
+const pageUrl = `${site}/guides/${guide.id}/`;
+const iso = guide.data.lastVerified.toISOString();
+
+const schema: unknown[] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: guide.data.title,
+    description: guide.data.description,
+    inLanguage: 'en',
+    datePublished: iso,
+    dateModified: iso,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
+    image: `${site}/og-image.png`,
+    articleSection: guide.data.category,
+    author: { '@type': 'Organization', name: 'TradeCheckPH', url: `${site}/` },
+    publisher: { '@id': `${site}/#organization` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site}/` },
+      { '@type': 'ListItem', position: 2, name: 'Guides', item: `${site}/guides/` },
+      { '@type': 'ListItem', position: 3, name: guide.data.title, item: pageUrl },
+    ],
+  },
+];
+
+// FAQPage markup, built from the article's own "## question" + following paragraph.
+if (guide.id === 'forex-trading-philippines-faq') {
+  const body = guide.body ?? '';
+  const faqs: { q: string; a: string }[] = [];
+  const sections = body.split(/\n##\s+/).slice(1);
+  for (const sec of sections) {
+    const [head, ...restLines] = sec.split('\n');
+    const q = head.trim();
+    if (!q.endsWith('?')) continue;
+    const answer = restLines
+      .join('\n')
+      .split(/\n\s*\n/)
+      .map((p) => p.trim())
+      .find((p) => p && !p.startsWith('---') && !p.startsWith('*'));
+    if (!answer) continue;
+    const plain = answer
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/[*_`]/g, '')
+      .trim();
+    faqs.push({ q, a: plain });
+  }
+  if (faqs.length > 0) {
+    schema.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    });
+  }
+}
 ---
-<Layout title={guide.data.title} description={guide.data.description}>
+<Layout title={guide.data.title} description={guide.data.description} schema={schema}>
   <span class="badge">{guide.data.category}</span>
   <h1>{guide.data.title}</h1>
   <p><span class="verified">✓ Last verified {guide.data.lastVerified.toISOString().slice(0, 10)}</span></p>
