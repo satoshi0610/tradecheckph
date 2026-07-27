@@ -36,4 +36,6 @@ Deposits are almost always fast. Withdrawals are where broker problems tend to a
 - A stated, consistent reason and timeline for a delay is different from vague, shifting, or escalating explanations — learn to tell the two apart.
 - If a broker is regulated, use the regulator's complaint process; if you can't verify regulation at all, treat that as a serious red flag on its own (see our [regulated vs unregulated brokers guide](/guides/regulated-vs-unregulated-brokers/)).
 
+If the withdrawal is never released and the entity turns out to be unlicensed, the [reporting process in the Philippines](/guides/how-to-report-an-investment-scam-philippines/) is the next step — and it starts with capturing evidence before anything else.
+
 *This is general educational information, not legal or investment advice. Individual circumstances vary — document your situation and, if needed, seek advice from the relevant regulator or a qualified professional.*

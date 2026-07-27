@@ -40,4 +40,6 @@ Some unregulated entities are simply operating in a jurisdiction with lighter-to
 - Understand that "regulated" reduces certain risks (fund handling, recourse) but does not eliminate trading losses.
 - If a broker's marketing emphasizes "regulated" heavily but makes it hard to find which specific entity and license number applies to your country, treat that as a reason to dig further before depositing.
 
+It also determines what happens if the firm fails: compensation schemes cover clients of the licensed entity only, which is why [knowing which entity holds your account](/guides/what-happens-if-your-broker-goes-bust/) matters more than the brand on the website.
+
 *This is general educational information, not investment advice. Always verify a broker's current regulatory status directly on the relevant regulator's official register.*

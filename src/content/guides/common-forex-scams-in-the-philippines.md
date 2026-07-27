@@ -37,4 +37,8 @@ Many of these schemes spread through personal networks — family, church groups
 2. Verify any broker license number directly on the relevant regulator's own register.
 3. Be skeptical of guaranteed returns, recruitment incentives, and withdrawal delays — these three patterns cover the large majority of reported cases.
 
+## If you've already lost money
+
+Two things are worth knowing immediately. First, the [reporting process — SEC, NBI, PNP-ACG](/guides/how-to-report-an-investment-scam-philippines/) — starts with preserving evidence, not with filing. Second, expect to be approached by someone offering to recover your funds for a fee; that is [almost always a second scam](/guides/recovery-scams-explained/).
+
 *This article summarizes publicly reported regulatory warning patterns and is for educational purposes only. It does not name specific companies, since flagged-entity lists change frequently — always check the current SEC advisory list directly.*

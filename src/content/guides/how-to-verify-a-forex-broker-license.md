@@ -48,6 +48,8 @@ Even well-intentioned comparison content can be outdated. Before funding an acco
 - Requests to trade through an unfamiliar third-party platform instead of the broker's own regulated platform
 - Difficulty finding any physical company registration details
 
+Once you've confirmed the licence, one question remains: which legal entity actually holds your account, and does any compensation scheme cover it? That's covered in [what happens if your broker goes bust](/guides/what-happens-if-your-broker-goes-bust/).
+
 We'll be publishing hands-on broker reviews as we complete our own verification process — until then, use the steps above on any broker you're considering.
 
 *This is general educational information, not investment advice. Always perform your own due diligence.*
