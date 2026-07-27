@@ -35,7 +35,7 @@ Many international brokers operate several legal entities under one brand name �
 
 ## Step 4: Cross-check against the regulator's warning list
 
-Most regulators, and the Philippine SEC separately, also publish a list of flagged or unauthorized entities. If a broker or a look-alike name appears there, stop.
+Most regulators, and the Philippine SEC separately, also publish a list of flagged or unauthorized entities. If a broker or a look-alike name appears there, stop. See [what an SEC advisory actually means](/guides/sec-advisory-list-explained/) and a worked example in [Is Exness Legal in the Philippines?](/guides/is-exness-legal-in-the-philippines/)
 
 ## Step 5: Treat "regulated" claims on comparison sites with caution — verify yourself
 
@@ -50,6 +50,6 @@ Even well-intentioned comparison content can be outdated. Before funding an acco
 
 Once you've confirmed the licence, one question remains: which legal entity actually holds your account, and does any compensation scheme cover it? That's covered in [what happens if your broker goes bust](/guides/what-happens-if-your-broker-goes-bust/).
 
-We'll be publishing hands-on broker reviews as we complete our own verification process — until then, use the steps above on any broker you're considering.
+Use the steps above on any broker you're considering — including brand names you already trust.
 
 *This is general educational information, not investment advice. Always perform your own due diligence.*

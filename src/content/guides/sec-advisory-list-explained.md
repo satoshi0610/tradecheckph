@@ -30,7 +30,7 @@ The second category is why you'll sometimes see recognizable, internationally re
 
 Advisory lists change frequently, and specific entities named in older advisories may have changed status, rebranded, or resolved the issue that triggered the warning. Reproducing a snapshot list here would go stale almost immediately and could unfairly mischaracterize a company's current status. Instead:
 
-- Check the SEC's live advisory page directly before opening or funding any account: [sec.gov.ph advisories](https://www.sec.gov.ph/investors-education-and-information/advisories/).
+- Check the SEC's live advisory page directly before opening or funding any account: [sec.gov.ph advisories](https://www.sec.gov.ph/investors-education-and-information/advisories/). For a worked example of how to read one of these advisories, see [Is Exness Legal in the Philippines?](/guides/is-exness-legal-in-the-philippines/)
 - Search both the exact company name **and** close variants — scam operations often use names that closely resemble legitimate ones.
 - Combine this with the regulator-register check in our [broker license verification guide](/guides/how-to-verify-a-forex-broker-license/) — an SEC advisory search and a check on the broker's actual claimed regulator (FCA/ASIC/CySEC) are two different checks, and you should do both.
 
