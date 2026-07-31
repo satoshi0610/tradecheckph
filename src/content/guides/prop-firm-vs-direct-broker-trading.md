@@ -42,4 +42,6 @@ Attempting a funded evaluation before you have a strategy that's actually proven
 - If your strategy isn't yet proven, testing it on demo or a small live broker account is cheaper than repeated evaluation attempts.
 - If you do have a proven strategy and limited capital, a prop firm evaluation can be a reasonable path — but budget for the real possibility of failing the evaluation and treat the fee accordingly.
 
+If you go the prop firm route, the two checks worth doing first are [verifying the firm actually pays out](/guides/how-to-verify-a-prop-firm-pays-out/) and reading [the rules that can void a payout](/guides/prop-firm-rules-that-void-payouts/).
+
 *This is general educational information, not investment advice.*

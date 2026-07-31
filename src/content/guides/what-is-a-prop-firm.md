@@ -37,4 +37,6 @@ It is not the same as opening a regulated brokerage account with your own funds 
 - Independently search for trader payout experiences rather than relying only on the firm's own marketing claims.
 - Treat the evaluation fee as a real cost of participation, sized appropriately to your budget.
 
+Before paying for any evaluation, work through [how to verify a prop firm actually pays out](/guides/how-to-verify-a-prop-firm-pays-out/), and compare the two product types in [instant funding vs two-phase challenge](/guides/instant-funding-vs-two-phase-challenge/).
+
 *This is general educational information, not investment advice. We'll publish a firm-by-firm comparison once we've completed independent evaluation research — until then, use the checklist above on any firm you're considering.*

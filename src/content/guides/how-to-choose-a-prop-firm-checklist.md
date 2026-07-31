@@ -43,4 +43,6 @@ Before you pay for an evaluation, run through this checklist. Every item here ma
 - Independent trader payout reports are worth more than the firm's own marketing claims.
 - Budget the evaluation fee as money you could lose entirely, and read the full terms before paying — not after a dispute arises.
 
+Two companion guides go deeper on the two checks that matter most: [how to verify a prop firm actually pays out](/guides/how-to-verify-a-prop-firm-pays-out/) and [the rules that void your payout](/guides/prop-firm-rules-that-void-payouts/).
+
 *This is general educational information, not investment advice. We'll publish firm-specific evaluations once we've completed independent research — until then, use this checklist on any firm you're considering.*
